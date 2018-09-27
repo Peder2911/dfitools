@@ -1,0 +1,6 @@
+.secret
+
+build/*
+
+*.pyc
+__pycache__/*
