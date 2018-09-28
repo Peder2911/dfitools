@@ -3,8 +3,6 @@
 
 import redis
 
-print('something else')
-
 class RedisFile():
     """
     An object mimicing a file, but writing to and reading from a redis list.
@@ -35,8 +33,16 @@ class RedisFile():
         res = '\n'.join(res)
         return(res)
 
+    def dump(self,file):
+        data = self.read()
+        file.write(data)
+
+
+    def close(self):
+        pass
+
     def __enter__(self):
         pass
 
     def __exit__(self,exc_type,exc_value,traceback):
-        pass
+        self.close() 
